@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>SV Care Pharmacy</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7faf9;
+      color: #17332d;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e8eeec;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .top-bar {
+      background: #087f5b;
+      color: white;
+      text-align: center;
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+
+    .navbar {
+      max-width: 1250px;
+      margin: auto;
+      height: 78px;
+      padding: 0 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 180px;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: #087f5b;
+      color: white;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      color: #087f5b;
+    }
+
+    .logo-text span {
+      color: #17332d;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #34534b;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #087f5b;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #dce7e3;
+      border-radius: 50%;
+      background: white;
+      font-size: 19px;
+    }
+
+    .login-btn {
+      background: #087f5b;
+      color: white;
+      border: none;
+      padding: 11px 19px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      max-width: 1250px;
+      margin: 35px auto;
+      padding: 0 25px;
+    }
+
+    .hero-box {
+      min-height: 470px;
+      background: linear-gradient(135deg, #e8f7f2, #f5fbf9);
+      border-radius: 28px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-content {
+      padding: 70px 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .tag {
+      display: inline-block;
+      width: fit-content;
+      background: #d5f1e8;
+      color: #087f5b;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.05;
+      max-width: 650px;
+      margin-bottom: 20px;
+      color: #12352d;
+    }
+
+    .hero h1 span {
+      color: #087f5b;
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: #58716a;
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .search-box {
+      background: white;
+      border: 1px solid #dce8e4;
+      height: 58px;
+      max-width: 600px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      padding: 5px;
+      box-shadow: 0 10px 30px rgba(20, 80, 60, 0.07);
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 0 15px;
+      font-size: 15px;
+    }
+
+    .search-box button {
+      height: 46px;
+      padding: 0 22px;
+      border: none;
+      border-radius: 9px;
+      background: #087f5b;
+      color: white;
+      font-weight: 700;
+    }
+
+    .hero-image {
+      min-height: 470px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: #dff4ed;
+    }
+
+    .medical-card {
+      width: 330px;
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(18, 76, 59, 0.15);
+      transform: rotate(-3deg);
+    }
+
+    .medical-icon {
+      width: 130px;
+      height: 130px;
+      margin: auto auto 20px;
+      border-radius: 50%;
+      background: #e2f6ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 70px;
+    }
+
+    .medical-card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .medical-card p {
+      font-size: 14px;
+      color: #71847e;
+    }
+
+    /* ================= FEATURES ================= */
+
+    .features {
+      max-width: 1250px;
+      margin: 0 auto 65px;
+      padding: 0 25px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature {
+      background: white;
+      border: 1px solid #e6eeeb;
+      padding: 24px;
+      border-radius: 15px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .feature p {
+      font-size: 13px;
+      color: #71847e;
+    }
+
+    /* ================= SECTIONS ================= */
+
+    .section {
+      max-width: 1250px;
+      margin: 0 auto 70px;
+      padding: 0 25px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+
+    .section-heading h2 {
+      font-size: 30px;
+      color: #173b32;
+    }
+
+    .section-heading p {
+      color: #71847e;
+      font-size: 14px;
+    }
+
+    .view-all {
+      color: #087f5b;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    /* ================= CATEGORIES ================= */
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #e4ece9;
+      border-radius: 16px;
+      padding: 25px 15px;
+      text-align: center;
+      transition: 0.25s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(20, 80, 60, 0.08);
+    }
+
+    .category-icon {
+      width: 70px;
+      height: 70px;
+      margin: auto auto 13px;
+      border-radius: 50%;
+      background: #edf8f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .category h3 {
+      font-size: 14px;
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #e4ece9;
+      border-radius: 17px;
+      overflow: hidden;
+      transition: 0.25s;
+    }
+
+    .product:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(20, 80, 60, 0.08);
+    }
+
+    .product-image {
+      height: 190px;
+      background: #f1f8f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 75px;
+      position: relative;
+    }
+
+    .discount {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #e4f6ef;
+      color: #087f5b;
+      padding: 5px 9px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .product-info {
+      padding: 18px;
+    }
+
+    .product-info small {
+      color: #83938e;
+    }
+
+    .product-info h3 {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .product-info p {
+      font-size: 13px;
+      color: #71847e;
+    }
+
+    .price {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .price strong {
+      font-size: 19px;
+    }
+
+    .add-btn {
+      border: none;
+      background: #087f5b;
+      color: white;
+      padding: 8px 14px;
+      border-radius: 7px;
+      font-weight: 700;
+    }
+
+    /* ================= PROMO ================= */
+
+    .promo {
+      max-width: 1200px;
+      margin: 0 auto 70px;
+      padding: 0 25px;
+    }
+
+    .promo-box {
+      background: #087f5b;
+      color: white;
+      border-radius: 22px;
+      padding: 45px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .promo-box h2 {
+      font-size: 31px;
+      margin-bottom: 8px;
+    }
+
+    .promo-box p {
+      opacity: 0.88;
+    }
+
+    .promo-btn {
+      background: white;
+      color: #087f5b;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 9px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #12332c;
+      color: white;
+      padding: 55px 25px 25px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 40px;
+    }
+
+    .footer-logo {
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .footer-about {
+      color: #b4c8c2;
+      font-size: 14px;
+      max-width: 320px;
+    }
+
+    .footer-column h3 {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #b4c8c2;
+      font-size: 14px;
+      margin-bottom: 9px;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #315149;
+      padding-top: 20px;
+      color: #9db4ad;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width: 1000px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        display: none;
+      }
+
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .categories {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .top-bar {
+        font-size: 12px;
+      }
+
+      .navbar {
+        height: 68px;
+        padding: 0 15px;
+      }
+
+      .logo-text {
+        font-size: 19px;
+      }
+
+      .logo-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .login-btn {
+        display: none;
+      }
+
+      .hero {
+        margin-top: 20px;
+        padding: 0 15px;
+      }
+
+      .hero-box {
+        border-radius: 20px;
+      }
+
+      .hero-content {
+        padding: 40px 25px;
+      }
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .search-box {
+        height: auto;
+        flex-direction: column;
+        padding: 8px;
+        gap: 8px;
+      }
+
+      .search-box input {
+        width: 100%;
+        height: 45px;
+      }
+
+      .search-box button {
+        width: 100%;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+      }
+
+      .section {
+        padding: 0 15px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading h2 {
+        font-size: 24px;
+      }
+
+      .promo {
+        padding: 0 15px;
+      }
+
+      .promo-box {
+        padding: 30px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .promo-box h2 {
+        font-size: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    Free delivery on orders above ₹499
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="navbar">
+
+      <a href="#" class="logo">
+        <div class="logo-icon">+</div>
+        <div class="logo-text">
+          SV <span>Care</span>
+        </div>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Medicines</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn">🛒</button>
+        <button class="login-btn">Login</button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="home">
+
+    <section class="hero">
+
+      <div class="hero-box">
+
+        <div class="hero-content">
+
+          <span class="tag">YOUR HEALTH, OUR PRIORITY</span>
+
+          <h1>
+            Healthcare made
+            <span>simple.</span>
+          </h1>
+
+          <p>
+            Order medicines, wellness products and everyday healthcare
+            essentials from SV Care Pharmacy.
+          </p>
+
+          <div class="search-box">
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search medicines, products or health essentials..."
+            />
+            <button onclick="searchProducts()">Search</button>
+          </div>
+
+        </div>
+
+        <div class="hero-image">
+
+          <div class="medical-card">
+            <div class="medical-icon">💊</div>
+
+            <h3>Healthcare Delivered</h3>
+
+            <p>
+              Quality healthcare products delivered conveniently to your door.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features">
+
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Fast Delivery</h3>
+        <p>Get your healthcare essentials delivered quickly.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">✓</div>
+        <h3>Quality Products</h3>
+        <p>Trusted products from reliable sources.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Payments</h3>
+        <p>Your payments and information stay protected.</p>
+      </div>
+
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <h3>Customer Support</h3>
+        <p>We're here to help whenever you need us.</p>
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+    <section class="section" id="categories">
+
+      <div class="section-heading">
+        <div>
+          <h2>Shop by Category</h2>
+          <p>Explore healthcare essentials</p>
+        </div>
+
+        <a href="#" class="view-all">View All →</a>
+      </div>
+
+      <div class="categories">
+
+        <div class="category">
+          <div class="category-icon">💊</div>
+          <h3>Medicines</h3>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🧴</div>
+          <h3>Personal Care</h3>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🧒</div>
+          <h3>Baby Care</h3>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🩺</div>
+          <h3>Health Devices</h3>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🧘</div>
+          <h3>Wellness</h3>
+        </div>
+
+        <div class="category">
+          <div class="category-icon">🦷</div>
+          <h3>Oral Care</h3>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section class="section" id="products">
+
+      <div class="section-heading">
+
+        <div>
+          <h2>Popular Products</h2>
+          <p>Everyday healthcare essentials</p>
+        </div>
+
+        <a href="#" class="view-all">View All →</a>
+
+      </div>
+
+      <div class="products">
+
+        <div class="product">
+          <div class="product-image">
+            <span class="discount">10% OFF</span>
+            💊
+          </div>
+
+          <div class="product-info">
+            <small>Healthcare</small>
+            <h3>Daily Wellness Tablets</h3>
+            <p>30 tablets</p>
+
+            <div class="price">
+              <strong>₹199</strong>
+              <button class="add-btn" onclick="addToCart('Daily Wellness Tablets')">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-image">
+            <span class="discount">15% OFF</span>
+            🧴
+          </div>
+
+          <div class="product-info">
+            <small>Personal Care</small>
+            <h3>Gentle Skin Care</h3>
+            <p>100 ml</p>
+
+            <div class="price">
+              <strong>₹249</strong>
+              <button class="add-btn" onclick="addToCart('Gentle Skin Care')">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-image">
+            <span class="discount">8% OFF</span>
+            🩹
+          </div>
+
+          <div class="product-info">
+            <small>First Aid</small>
+            <h3>First Aid Essentials</h3>
+            <p>Healthcare kit</p>
+
+            <div class="price">
+              <strong>₹349</strong>
+              <button class="add-btn" onclick="addToCart('First Aid Essentials')">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="product">
+          <div class="product-image">
+            <span class="discount">12% OFF</span>
+            🩺
+          </div>
+
+          <div class="product-info">
+            <small>Health Devices</small>
+            <h3>Digital Health Monitor</h3>
+            <p>Easy to use</p>
+
+            <div class="price">
+              <strong>₹899</strong>
+              <button class="add-btn" onclick="addToCart('Digital Health Monitor')">
+                Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROMOTION -->
+    <section class="promo" id="offers">
+
+      <div class="promo-box">
+
+        <div>
+          <h2>Healthy savings are here.</h2>
+          <p>
+            Save more on your everyday healthcare essentials.
+          </p>
+        </div>
+
+        <button class="promo-btn" onclick="shopOffers()">
+          Shop Offers
+        </button>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer id="contact">
+
+    <div class="footer-container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-logo">SV Care</div>
+
+          <p class="footer-about">
+            Your trusted destination for medicines, healthcare products,
+            wellness essentials and everyday care.
+          </p>
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>Shop</h3>
+
+          <a href="#products">Medicines</a>
+          <a href="#categories">Personal Care</a>
+          <a href="#categories">Baby Care</a>
+          <a href="#categories">Wellness</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>Company</h3>
+
+          <a href="#">About Us</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Careers</a>
+          <a href="#">Help Center</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>Policies</h3>
+
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Shipping Policy</a>
+          <a href="#">Refund Policy</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 SV Care Pharmacy. All rights reserved.
+        </span>
+
+        <span>
+          Safe • Simple • Convenient
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    function searchProducts() {
+
+      const input = document.getElementById("searchInput");
+      const query = input.value.trim();
+
+      if (query === "") {
+        alert("Please enter a product or medicine name.");
+        return;
+      }
+
+      alert("Searching for: " + query);
+
+    }
+
+
+    function addToCart(productName) {
+
+      alert(productName + " added to your cart.");
+
+    }
+
+
+    function shopOffers() {
+
+      document
+        .getElementById("products")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+
+  </script>
+
+</body>
+</html>
